@@ -1,0 +1,49 @@
+---
+const memes = [
+  {
+    date: 'September 21, 1972',
+    title: 'Martial Law Declared',
+    description: 'Ferdinand Marcos signed Proclamation No. 1081, placing the Philippines under Martial Law.',
+    tag: 'Martial Law',
+  },
+  {
+    date: 'August 21, 1983',
+    title: 'Ninoy Aquino Assassinated',
+    description: 'Senator Benigno "Ninoy" Aquino Jr. was shot dead at Manila International Airport upon his return from exile.',
+    tag: 'EDSA',
+  },
+  {
+    date: 'February 25, 1986',
+    title: 'People Power Revolution',
+    description: 'Millions of Filipinos gathered at EDSA, peacefully overthrowing the Marcos dictatorship.',
+    tag: 'People Power',
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">History Worth Remembering</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Real events. Verified sources. Meme format for maximum shareability.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {memes.map(meme => (
+        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="bg-gradient-to-r from-ph-blue to-ph-blue-dark p-4">
+            <span class="inline-block bg-ph-yellow text-ph-blue-dark text-xs font-bold px-2.5 py-1 rounded-full">
+              {meme.tag}
+            </span>
+          </div>
+          <div class="p-5">
+            <p class="text-sm text-ph-red font-semibold mb-1">{meme.date}</p>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{meme.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{meme.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

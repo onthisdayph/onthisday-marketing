@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import MemeShowcase from '../components/MemeShowcase.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+
+const features = [
+  {
+    icon: '📅',
+    title: 'Timeline Feed',
+    description: 'Browse Philippine history day by day. See what happened on this day in history.',
+  },
+  {
+    icon: '🗳️',
+    title: 'Community Voting',
+    description: 'Upvote the most important events. The community decides what matters most.',
+  },
+  {
+    icon: '🔗',
+    title: 'Source Verification',
+    description: 'Every entry requires linked sources. No fake news, no revisionism — just facts.',
+  },
+  {
+    icon: '🔍',
+    title: 'Search & Discover',
+    description: 'Search by person, date, or event. Find the receipts you need in seconds.',
+  },
+  {
+    icon: '📤',
+    title: 'Easy Sharing',
+    description: 'Share meme-format history cards on social media. Make history go viral.',
+  },
+  {
+    icon: '💸',
+    title: 'Free & Open Source',
+    description: 'Built by Filipinos, for Filipinos. Free forever. Open-source on GitHub.',
+  },
+];
+---
+
+<BaseLayout
+  title="OnThisDay.PH"
+  description="Philippine history in meme format with verified sources. Remember what happened. Hold leaders accountable."
+>
+  <Hero />
+
+  <!-- Problem Statement -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          People forget what politicians did.
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Historical revisionism is spreading. Verified records are scattered. Accountability fades with time.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+            🔄
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Revisionism Spreads</h3>
+          <p class="text-gray-600 text-sm">Historical facts are twisted or erased on social media, misleading millions of Filipinos.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+            📰
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Sources Are Scattered</h3>
+          <p class="text-gray-600 text-sm">Verified records exist across dozens of sites. No single place brings them together.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+            ⏳
+          </div>
+          <h3 class="font-bold text-gray-900 mb-2">Memory Fades</h3>
+          <p class="text-gray-600 text-sm">Each generation forgets. Without accessible records, accountability disappears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <HowItWorks />
+  <MemeShowcase />
+
+  <!-- Features Grid -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Everything You Need</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Built for civic engagement, designed for shareability.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(feature => (
+          <FeatureCard
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQ />
+  <CTASection />
+</BaseLayout>

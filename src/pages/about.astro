@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="OnThisDay.PH is a civic tech project that preserves Philippine history through memes and verified sources."
+>
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-8">About OnThisDay.PH</h1>
+
+      <div class="prose prose-lg max-w-none text-gray-600 space-y-6">
+        <p class="text-xl leading-relaxed">
+          <strong class="text-gray-900">OnThisDay.PH</strong> is a civic tech project that presents modern Philippine history in meme format — with verified sources for every entry.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12">The Problem</h2>
+        <p>
+          Historical revisionism is one of the biggest threats to Philippine democracy. Across social media, verified facts are twisted, downplayed, or erased. Younger generations grow up without knowing what actually happened. When people forget, accountability disappears.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12">Our Solution</h2>
+        <p>
+          We believe history should be accessible, shareable, and verifiable. By combining the viral nature of memes with rigorous source verification, OnThisDay.PH makes Philippine history impossible to ignore.
+        </p>
+        <p>
+          Every entry on the platform links back to verified sources — news articles, government records, academic publications. The community votes on accuracy, ensuring that only well-sourced entries surface to the top.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12">How We're Different</h2>
+        <ul class="space-y-3">
+          <li><strong class="text-gray-900">Meme-first format</strong> — History that's designed to be shared, not buried in textbooks.</li>
+          <li><strong class="text-gray-900">Source verification</strong> — Every entry requires linked sources. No hearsay, no fake news.</li>
+          <li><strong class="text-gray-900">Community-driven</strong> — Filipinos submit, verify, and curate the timeline together.</li>
+          <li><strong class="text-gray-900">Open source</strong> — The code is public. Anyone can contribute, audit, or fork it.</li>
+          <li><strong class="text-gray-900">Free forever</strong> — No paywalls, no premium tiers. History belongs to everyone.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12">Built With</h2>
+        <p>
+          OnThisDay.PH is built with modern, open-source technology: Next.js, Hono, Supabase, and deployed on Vercel. This marketing site is built with Astro for maximum performance.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-900 mt-12">Get Involved</h2>
+        <p>
+          Whether you're a developer, historian, educator, or concerned citizen — there's a place for you. Contribute code on GitHub, submit historical events on the app, or simply share verified history with your network.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'Submit',
+    description: 'Share a historical event with a meme and link your sources.',
+    icon: '📝',
+  },
+  {
+    number: '2',
+    title: 'Verify',
+    description: 'The community checks the sources and votes on accuracy.',
+    icon: '🔍',
+  },
+  {
+    number: '3',
+    title: 'Vote',
+    description: 'Upvote the most important events to surface what matters.',
+    icon: '🗳️',
+  },
+  {
+    number: '4',
+    title: 'Share',
+    description: 'Spread verified history memes across social media.',
+    icon: '📤',
+  },
+];
+---
+
+<section id="how-it-works" class="py-20 sm:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Four simple steps to keep Philippine history alive and accountable.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {steps.map(step => (
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center text-3xl">
+            {step.icon}
+          </div>
+          <div class="text-sm font-bold text-ph-blue uppercase tracking-wide mb-2">
+            Step {step.number}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+          <p class="text-gray-600 leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

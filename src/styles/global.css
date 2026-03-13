@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ph-blue: #0038A8;
+  --color-ph-red: #CE1126;
+  --color-ph-yellow: #FCD116;
+  --color-ph-blue-dark: #002A7F;
+  --color-ph-red-dark: #A80D1E;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}

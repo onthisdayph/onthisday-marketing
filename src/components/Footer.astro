@@ -1,0 +1,34 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-white font-bold text-lg mb-3">OnThisDay.PH</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Resibo ng Bayan. Philippine history in meme format, backed by verified sources.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+          <li><a href="https://app.onthisday.ph" class="hover:text-white transition-colors">Open App</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-3">Project</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://github.com/onthisdayph" class="hover:text-white transition-colors">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+      <p>&copy; {currentYear} OnThisDay.PH. Open-source civic tech for the Filipino people.</p>
+    </div>
+  </div>
+</footer>

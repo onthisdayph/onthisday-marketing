@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: 'What is OnThisDay.PH?',
+    answer: 'OnThisDay.PH is a civic tech platform that presents modern Philippine history in meme format with verified sources. It helps Filipinos remember important events and hold leaders accountable.',
+  },
+  {
+    question: 'Is it free to use?',
+    answer: 'Yes! OnThisDay.PH is completely free and open-source. Anyone can view, submit, and share historical memes.',
+  },
+  {
+    question: 'How are sources verified?',
+    answer: 'Every submission requires linked sources (news articles, government records, etc.). The community votes on the accuracy and reliability of each entry.',
+  },
+  {
+    question: 'Can I submit my own historical events?',
+    answer: 'Absolutely. Sign up on the app and submit any Philippine historical event with a meme and supporting sources. The community will review and verify it.',
+  },
+  {
+    question: 'Is this a political app?',
+    answer: 'OnThisDay.PH is non-partisan. We present verified historical facts regardless of political affiliation. Accountability applies to all public officials.',
+  },
+  {
+    question: 'How can I contribute to the project?',
+    answer: 'OnThisDay.PH is open-source. You can contribute code on GitHub, submit historical events, or help verify existing entries.',
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-3">
+      {faqs.map(faq => (
+        <details class="group bg-white rounded-lg border border-gray-200">
+          <summary class="flex items-center justify-between cursor-pointer p-5 font-semibold text-gray-900 hover:text-ph-blue transition-colors">
+            {faq.question}
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-5 pb-5 text-gray-600 leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
