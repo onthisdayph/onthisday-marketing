@@ -1,0 +1,31 @@
+{
+  "name": "OnThisDay.PH",
+  "short_name": "OnThisDay",
+  "description": "Philippine history in meme format with verified sources. Remember what happened. Hold leaders accountable.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0038A8",
+  "background_color": "#ffffff",
+  "lang": "en-PH",
+  "categories": ["education", "news", "social"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://onthisday.ph/manifest.json"
+    }
+  ]
+}
