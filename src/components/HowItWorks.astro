@@ -1,32 +1,3 @@
----
-const steps = [
-  {
-    number: '1',
-    title: 'Submit',
-    description: 'Share a historical event with a meme and link your sources — anyone can contribute.',
-    icon: '📝',
-  },
-  {
-    number: '2',
-    title: 'Verify',
-    description: 'The community checks every source. News articles, government records, academic papers.',
-    icon: '🔍',
-  },
-  {
-    number: '3',
-    title: 'Vote',
-    description: 'Upvote well-sourced entries. The community surfaces what matters most.',
-    icon: '🗳️',
-  },
-  {
-    number: '4',
-    title: 'Share',
-    description: 'Spread verified history across social media. Make it impossible to forget.',
-    icon: '📤',
-  },
-];
----
-
 <section id="how-it-works" class="py-20 sm:py-28 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16 animate-on-scroll">
@@ -39,45 +10,105 @@ const steps = [
 
     <!-- Desktop: Horizontal timeline -->
     <div class="hidden lg:grid lg:grid-cols-4 gap-0">
-      {steps.map((step, i) => (
-        <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
-          {/* Connector line */}
-          {i < steps.length - 1 && (
-            <div class="absolute top-8 left-[calc(50%+2rem)] right-0 h-0.5 bg-gradient-to-r from-gray-200 to-gray-200 z-0"></div>
-          )}
-          {/* Icon circle */}
-          <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center text-3xl relative z-20 border-2 border-white shadow-sm">
-            {step.icon}
-          </div>
-          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">
-            Step {step.number}
-          </div>
-          {/* Card - flex-1 ensures equal height */}
-          <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
-            <h3 class="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-1">{step.description}</p>
-          </div>
+      <!-- Step 1: Submit -->
+      <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
+        <div class="absolute top-8 left-[calc(50%+2rem)] right-0 h-0.5 bg-gray-200 z-0"></div>
+        <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center relative z-20 border-2 border-white shadow-sm">
+          <svg class="w-7 h-7 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
         </div>
-      ))}
+        <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">Step 1</div>
+        <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Submit</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Share a historical event with a meme and link your sources — anyone can contribute.</p>
+        </div>
+      </div>
+
+      <!-- Step 2: Verify -->
+      <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
+        <div class="absolute top-8 left-[calc(50%+2rem)] right-0 h-0.5 bg-gray-200 z-0"></div>
+        <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center relative z-20 border-2 border-white shadow-sm">
+          <svg class="w-7 h-7 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+        </div>
+        <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">Step 2</div>
+        <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Verify</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">The community checks every source. News articles, government records, academic papers.</p>
+        </div>
+      </div>
+
+      <!-- Step 3: Vote -->
+      <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
+        <div class="absolute top-8 left-[calc(50%+2rem)] right-0 h-0.5 bg-gray-200 z-0"></div>
+        <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center relative z-20 border-2 border-white shadow-sm">
+          <svg class="w-7 h-7 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" /></svg>
+        </div>
+        <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">Step 3</div>
+        <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Vote</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Upvote well-sourced entries. The community surfaces what matters most.</p>
+        </div>
+      </div>
+
+      <!-- Step 4: Share -->
+      <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
+        <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center relative z-20 border-2 border-white shadow-sm">
+          <svg class="w-7 h-7 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
+        </div>
+        <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">Step 4</div>
+        <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Share</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Spread verified history across social media. Make it impossible to forget.</p>
+        </div>
+      </div>
     </div>
 
     <!-- Mobile: Vertical timeline -->
     <div class="lg:hidden relative pl-10">
       <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
-      {steps.map((step) => (
-        <div class="relative mb-8 last:mb-0 animate-on-scroll">
-          <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center text-lg z-10 border-2 border-white shadow-sm">
-            {step.icon}
-          </div>
-          <div class="gradient-border-card p-5">
-            <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">
-              Step {step.number}
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-          </div>
+
+      <div class="relative mb-8 animate-on-scroll">
+        <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center z-10 border-2 border-white shadow-sm">
+          <svg class="w-4 h-4 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
         </div>
-      ))}
+        <div class="gradient-border-card p-5">
+          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">Step 1</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Submit</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Share a historical event with a meme and link your sources — anyone can contribute.</p>
+        </div>
+      </div>
+
+      <div class="relative mb-8 animate-on-scroll">
+        <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center z-10 border-2 border-white shadow-sm">
+          <svg class="w-4 h-4 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+        </div>
+        <div class="gradient-border-card p-5">
+          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">Step 2</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Verify</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">The community checks every source. News articles, government records, academic papers.</p>
+        </div>
+      </div>
+
+      <div class="relative mb-8 animate-on-scroll">
+        <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center z-10 border-2 border-white shadow-sm">
+          <svg class="w-4 h-4 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H14.23c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" /></svg>
+        </div>
+        <div class="gradient-border-card p-5">
+          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">Step 3</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Vote</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Upvote well-sourced entries. The community surfaces what matters most.</p>
+        </div>
+      </div>
+
+      <div class="relative animate-on-scroll">
+        <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center z-10 border-2 border-white shadow-sm">
+          <svg class="w-4 h-4 text-ph-blue" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
+        </div>
+        <div class="gradient-border-card p-5">
+          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">Step 4</div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">Share</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Spread verified history across social media. Make it impossible to forget.</p>
+        </div>
+      </div>
     </div>
 
     <!-- CTA under timeline -->
@@ -87,7 +118,7 @@ const steps = [
         class="inline-flex items-center gap-2 bg-ph-blue text-white font-semibold px-6 py-3 rounded-lg hover:bg-ph-blue-dark transition-colors"
       >
         <span>Try It Now</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
       </a>
     </div>
   </div>

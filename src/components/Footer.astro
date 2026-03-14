@@ -2,33 +2,79 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-900 text-gray-300">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="text-white font-bold text-lg mb-3">OnThisDay.PH</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Resibo ng Bayan. Philippine history in meme format, backed by verified sources.
+<footer class="relative bg-gray-900 text-gray-300 overflow-hidden">
+  <!-- Dot grid pattern -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+  <!-- Top accent line -->
+  <div class="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <h3 class="text-white font-bold text-xl mb-3">OnThisDay.PH</h3>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-6">
+          Resibo ng Bayan. Philippine history in meme format, backed by verified sources. Built by Filipinos, for Filipinos.
         </p>
+        <a
+          href="https://app.onthisday.ph"
+          class="inline-flex items-center gap-2 bg-white/10 border border-white/10 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-white/15 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          Open the App
+        </a>
       </div>
+
+      <!-- Navigation -->
       <div>
-        <h4 class="text-white font-semibold mb-3">Links</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
-          <li><a href="https://app.onthisday.ph" class="hover:text-white transition-colors">Open App</a></li>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Navigate</h4>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="/" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" /></svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/blog" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+              Blog
+            </a>
+          </li>
         </ul>
       </div>
+
+      <!-- Project -->
       <div>
-        <h4 class="text-white font-semibold mb-3">Project</h4>
-        <ul class="space-y-2 text-sm">
-          <li><a href="https://github.com/onthisdayph" class="hover:text-white transition-colors">GitHub</a></li>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4">Project</h4>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="https://github.com/onthisdayph" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://app.onthisday.ph" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+              Open App
+            </a>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-      <p>&copy; {currentYear} OnThisDay.PH. Open-source civic tech for the Filipino people.</p>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-500">&copy; {currentYear} OnThisDay.PH. Open-source civic tech for the Filipino people.</p>
+      <p class="text-xs text-gray-600">Made with purpose in the Philippines</p>
     </div>
   </div>
 </footer>
