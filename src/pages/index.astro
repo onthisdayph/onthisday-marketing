@@ -11,7 +11,7 @@ const features = [
   {
     icon: '📅',
     title: 'Timeline Feed',
-    description: 'Browse Philippine history day by day. See what happened on this day in history.',
+    description: 'Browse Philippine history day by day. See what happened on this day — from politics to sports to culture.',
   },
   {
     icon: '🗳️',
@@ -42,7 +42,7 @@ const features = [
 ---
 
 <BaseLayout
-  title="OnThisDay.PH"
+  title="OnThisDay.PH — Resibo ng Bayan"
   description="Philippine history in meme format with verified sources. Remember what happened. Hold leaders accountable."
 >
   <Hero />
@@ -50,35 +50,36 @@ const features = [
   <!-- Problem Statement -->
   <section class="py-20 sm:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-on-scroll">
+        <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">The Problem</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          People forget what politicians did.
+          Important moments get forgotten.
         </h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Historical revisionism is spreading. Verified records are scattered. Accountability fades with time.
+          History is rewritten, milestones fade, and the events that shaped the nation get lost in the noise.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="gradient-border-card p-6 text-center flex flex-col h-full animate-on-scroll">
+          <div class="w-14 h-14 mx-auto mb-4 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
             🔄
           </div>
           <h3 class="font-bold text-gray-900 mb-2">Revisionism Spreads</h3>
-          <p class="text-gray-600 text-sm">Historical facts are twisted or erased on social media, misleading millions of Filipinos.</p>
+          <p class="text-gray-600 text-sm flex-1">Historical facts are twisted or erased on social media, misleading millions of Filipinos.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+        <div class="gradient-border-card p-6 text-center flex flex-col h-full animate-on-scroll-delay-1">
+          <div class="w-14 h-14 mx-auto mb-4 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
             📰
           </div>
           <h3 class="font-bold text-gray-900 mb-2">Sources Are Scattered</h3>
-          <p class="text-gray-600 text-sm">Verified records exist across dozens of sites. No single place brings them together.</p>
+          <p class="text-gray-600 text-sm flex-1">Verified records exist across dozens of sites. No single place brings them together.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 mx-auto mb-4 bg-ph-red/10 rounded-xl flex items-center justify-center text-2xl">
+        <div class="gradient-border-card p-6 text-center flex flex-col h-full animate-on-scroll-delay-2">
+          <div class="w-14 h-14 mx-auto mb-4 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
             ⏳
           </div>
           <h3 class="font-bold text-gray-900 mb-2">Memory Fades</h3>
-          <p class="text-gray-600 text-sm">Each generation forgets. Without accessible records, accountability disappears.</p>
+          <p class="text-gray-600 text-sm flex-1">Each generation forgets. Without accessible records, accountability disappears.</p>
         </div>
       </div>
     </div>
@@ -90,7 +91,8 @@ const features = [
   <!-- Features Grid -->
   <section class="py-20 sm:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16 animate-on-scroll">
+        <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">Features</p>
         <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Everything You Need</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           Built for civic engagement, designed for shareability.
@@ -98,11 +100,13 @@ const features = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map(feature => (
-          <FeatureCard
-            icon={feature.icon}
-            title={feature.title}
-            description={feature.description}
-          />
+          <div class="animate-on-scroll">
+            <FeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          </div>
         ))}
       </div>
     </div>

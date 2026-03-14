@@ -1,49 +1,120 @@
----
-const memes = [
-  {
-    date: 'September 21, 1972',
-    title: 'Martial Law Declared',
-    description: 'Ferdinand Marcos signed Proclamation No. 1081, placing the Philippines under Martial Law.',
-    tag: 'Martial Law',
-  },
-  {
-    date: 'August 21, 1983',
-    title: 'Ninoy Aquino Assassinated',
-    description: 'Senator Benigno "Ninoy" Aquino Jr. was shot dead at Manila International Airport upon his return from exile.',
-    tag: 'EDSA',
-  },
-  {
-    date: 'February 25, 1986',
-    title: 'People Power Revolution',
-    description: 'Millions of Filipinos gathered at EDSA, peacefully overthrowing the Marcos dictatorship.',
-    tag: 'People Power',
-  },
-];
----
-
 <section class="py-20 sm:py-28 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">History Worth Remembering</h2>
+    <div class="text-center mb-16 animate-on-scroll">
+      <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">Featured Events</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Moments Worth Remembering</h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Real events. Verified sources. Meme format for maximum shareability.
+        From pivotal history to recent milestones — verified events that shaped the Filipino story.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {memes.map(meme => (
-        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-          <div class="bg-gradient-to-r from-ph-blue to-ph-blue-dark p-4">
-            <span class="inline-block bg-ph-yellow text-ph-blue-dark text-xs font-bold px-2.5 py-1 rounded-full">
-              {meme.tag}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1: Martial Law -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              Martial Law
             </span>
+            <span class="text-xs text-gray-400 font-medium">1972</span>
           </div>
-          <div class="p-5">
-            <p class="text-sm text-ph-red font-semibold mb-1">{meme.date}</p>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">{meme.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{meme.description}</p>
-          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">September 21, 1972</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Martial Law Declared</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Ferdinand Marcos signed Proclamation No. 1081, placing the Philippines under Martial Law for over a decade.</p>
         </div>
-      ))}
+      </div>
+
+      <!-- Card 2: People Power -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll-delay-1">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              People Power
+            </span>
+            <span class="text-xs text-gray-400 font-medium">1986</span>
+          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">February 25, 1986</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">People Power Revolution</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Millions of Filipinos gathered at EDSA, peacefully overthrowing the Marcos dictatorship and restoring democracy.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Typhoon Yolanda -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll-delay-2">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              Disaster Response
+            </span>
+            <span class="text-xs text-gray-400 font-medium">2013</span>
+          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">November 8, 2013</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Typhoon Yolanda (Haiyan)</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">One of the strongest tropical cyclones ever recorded devastated the Visayas, killing over 6,000. Filipino bayanihan spirit shone in the aftermath.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Carlos Yulo Olympic Gold -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              Sports
+            </span>
+            <span class="text-xs text-gray-400 font-medium">2024</span>
+          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">August 2024</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Carlos Yulo Wins Double Olympic Gold</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Gymnast Carlos Yulo won two gold medals at the Paris Olympics — the first Filipino to win Olympic gold in gymnastics.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Ayungin Shoal -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll-delay-1">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              Sovereignty
+            </span>
+            <span class="text-xs text-gray-400 font-medium">2024</span>
+          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">June 17, 2024</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">Ayungin Shoal Confrontation</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">Chinese coast guard boarded Philippine Navy boats during a resupply mission to BRP Sierra Madre at Ayungin Shoal.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: POGO Ban -->
+      <div class="gradient-border-card overflow-hidden flex flex-col animate-on-scroll-delay-2">
+        <div class="h-1 bg-ph-blue"></div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-center justify-between mb-3">
+            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2.5 py-1 rounded-full">
+              Public Safety
+            </span>
+            <span class="text-xs text-gray-400 font-medium">2024</span>
+          </div>
+          <p class="text-sm text-ph-blue font-semibold mb-1">October 2024</p>
+          <h3 class="text-lg font-bold text-gray-900 mb-2">POGO Operations Banned</h3>
+          <p class="text-gray-600 text-sm leading-relaxed flex-1">President Marcos banned all Philippine Offshore Gaming Operators after exposés of human trafficking and scams tied to POGO operations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-14 animate-on-scroll">
+      <p class="text-gray-500 text-sm mb-4">Discover hundreds more events on the app</p>
+      <a
+        href="https://app.onthisday.ph"
+        class="inline-flex items-center gap-2 bg-ph-blue text-white font-semibold px-6 py-3 rounded-lg hover:bg-ph-blue-dark transition-colors"
+      >
+        <span>Browse the Timeline</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+      </a>
     </div>
   </div>
 </section>

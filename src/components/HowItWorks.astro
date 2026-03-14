@@ -3,25 +3,25 @@ const steps = [
   {
     number: '1',
     title: 'Submit',
-    description: 'Share a historical event with a meme and link your sources.',
+    description: 'Share a historical event with a meme and link your sources — anyone can contribute.',
     icon: '📝',
   },
   {
     number: '2',
     title: 'Verify',
-    description: 'The community checks the sources and votes on accuracy.',
+    description: 'The community checks every source. News articles, government records, academic papers.',
     icon: '🔍',
   },
   {
     number: '3',
     title: 'Vote',
-    description: 'Upvote the most important events to surface what matters.',
+    description: 'Upvote well-sourced entries. The community surfaces what matters most.',
     icon: '🗳️',
   },
   {
     number: '4',
     title: 'Share',
-    description: 'Spread verified history memes across social media.',
+    description: 'Spread verified history across social media. Make it impossible to forget.',
     icon: '📤',
   },
 ];
@@ -29,25 +29,66 @@ const steps = [
 
 <section id="how-it-works" class="py-20 sm:py-28 bg-white">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
+    <div class="text-center mb-16 animate-on-scroll">
+      <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">Simple Process</p>
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         Four simple steps to keep Philippine history alive and accountable.
       </p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {steps.map(step => (
-        <div class="text-center">
-          <div class="w-16 h-16 mx-auto mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center text-3xl">
+
+    <!-- Desktop: Horizontal timeline -->
+    <div class="hidden lg:grid lg:grid-cols-4 gap-0">
+      {steps.map((step, i) => (
+        <div class="relative flex flex-col items-center text-center px-3 animate-on-scroll">
+          {/* Connector line */}
+          {i < steps.length - 1 && (
+            <div class="absolute top-8 left-[calc(50%+2rem)] right-0 h-0.5 bg-gradient-to-r from-gray-200 to-gray-200 z-0"></div>
+          )}
+          {/* Icon circle */}
+          <div class="w-16 h-16 mb-5 bg-ph-blue/10 rounded-2xl flex items-center justify-center text-3xl relative z-20 border-2 border-white shadow-sm">
             {step.icon}
           </div>
-          <div class="text-sm font-bold text-ph-blue uppercase tracking-wide mb-2">
+          <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-3">
             Step {step.number}
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-          <p class="text-gray-600 leading-relaxed">{step.description}</p>
+          {/* Card - flex-1 ensures equal height */}
+          <div class="gradient-border-card p-5 w-full flex-1 flex flex-col">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed flex-1">{step.description}</p>
+          </div>
         </div>
       ))}
+    </div>
+
+    <!-- Mobile: Vertical timeline -->
+    <div class="lg:hidden relative pl-10">
+      <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+      {steps.map((step) => (
+        <div class="relative mb-8 last:mb-0 animate-on-scroll">
+          <div class="absolute -left-10 top-0 w-8 h-8 bg-ph-blue/10 rounded-lg flex items-center justify-center text-lg z-10 border-2 border-white shadow-sm">
+            {step.icon}
+          </div>
+          <div class="gradient-border-card p-5">
+            <div class="text-xs font-bold text-ph-blue uppercase tracking-widest mb-1">
+              Step {step.number}
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA under timeline -->
+    <div class="text-center mt-14 animate-on-scroll">
+      <a
+        href="https://app.onthisday.ph"
+        class="inline-flex items-center gap-2 bg-ph-blue text-white font-semibold px-6 py-3 rounded-lg hover:bg-ph-blue-dark transition-colors"
+      >
+        <span>Try It Now</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+      </a>
     </div>
   </div>
 </section>

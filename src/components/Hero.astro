@@ -1,21 +1,32 @@
-<section class="relative overflow-hidden bg-gradient-to-br from-ph-blue to-ph-blue-dark text-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+<section class="relative overflow-hidden bg-gradient-to-br from-ph-blue via-ph-blue-dark to-ph-blue text-white min-h-[90vh] flex items-center">
+  <!-- Floating decorative blurs -->
+  <div class="absolute top-20 left-10 w-72 h-72 bg-ph-yellow/10 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute bottom-20 right-10 w-96 h-96 bg-ph-red/10 rounded-full blur-3xl animate-float-delay"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
     <div class="max-w-3xl">
-      <p class="text-ph-yellow font-semibold text-sm sm:text-base uppercase tracking-wide mb-4">
-        Civic Tech for Filipinos
-      </p>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-        Resibo ng Bayan
+      <!-- Glassmorphism badge -->
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 bg-ph-yellow rounded-full animate-pulse"></span>
+        <span class="text-sm font-medium text-blue-100">Civic Tech for Filipinos</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+        <span class="bg-gradient-to-r from-white via-ph-yellow to-white bg-clip-text text-transparent">
+          Resibo ng Bayan
+        </span>
       </h1>
       <p class="text-lg sm:text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
-        Philippine history in meme format — with verified sources. Remember what happened. Hold leaders accountable. Never forget.
+        Philippine history in meme format — with verified sources. From national milestones to cultural moments, remember what matters. Never forget.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a
           href="https://app.onthisday.ph"
-          class="inline-flex items-center justify-center bg-ph-yellow text-ph-blue-dark font-bold px-8 py-3.5 rounded-lg text-lg hover:brightness-110 transition"
+          class="inline-flex items-center justify-center gap-2 bg-ph-yellow text-ph-blue-dark font-bold px-8 py-3.5 rounded-lg text-lg hover:brightness-110 transition animate-pulse-glow"
         >
-          Get Started — It's Free
+          <span>Open the App</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
         </a>
         <a
           href="#how-it-works"
@@ -24,9 +35,26 @@
           See How It Works
         </a>
       </div>
+
+      <!-- Quick stats -->
+      <div class="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/15">
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-ph-yellow">100%</p>
+          <p class="text-sm text-blue-200 mt-1">Free & Open Source</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">Verified</p>
+          <p class="text-sm text-blue-200 mt-1">Source-backed entries</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">Community</p>
+          <p class="text-sm text-blue-200 mt-1">Driven by Filipinos</p>
+        </div>
+      </div>
     </div>
   </div>
-  <!-- Decorative element -->
+
+  <!-- Wave divider -->
   <div class="absolute -bottom-1 left-0 right-0">
     <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
       <path d="M0 60V0C240 40 480 60 720 40C960 20 1200 40 1440 0V60H0Z" fill="white"/>
