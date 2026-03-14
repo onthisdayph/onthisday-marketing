@@ -1,0 +1,93 @@
+# OnThisDay.PH Marketing Website — Windsurf Rules
+
+## Project Overview
+
+Static marketing website for [OnThisDay.PH](https://onthisday.ph), a civic tech platform helping Filipinos fact-check historical claims. Built with Astro as a zero-JS static site, separate from the main application.
+
+## Tech Stack
+
+- **Framework**: Astro 6.0.4
+- **CSS**: Tailwind CSS v4 via `@tailwindcss/vite` (config in CSS, not a config file)
+- **Language**: TypeScript strict mode
+- **Content**: Astro Content Collections + Zod
+- **Deployment**: Vercel — production at `https://onthisday.ph`
+- **Package Manager**: pnpm (required), Node.js >= 22.12.0
+
+## Development Commands
+
+```bash
+pnpm dev      # Start dev server at http://localhost:4321
+pnpm build    # Production build → dist/
+pnpm preview  # Preview production build
+```
+
+No test suite. Verify changes with `pnpm build`.
+
+## Repository Structure
+
+```
+src/
+├── components/       # Reusable .astro components
+├── layouts/
+│   └── BaseLayout.astro   # Only layout — Header + Footer + SEOHead
+├── pages/            # File-based routing
+│   ├── index.astro   # Landing page
+│   ├── about.astro
+│   ├── 404.astro
+│   └── blog/
+│       ├── index.astro
+│       └── [slug].astro
+├── content/blog/     # Markdown blog posts
+├── styles/global.css # Tailwind @theme + custom utilities
+└── content.config.ts # Zod schema for blog posts
+```
+
+## Critical Conventions
+
+### Components
+- `.astro` files only in `src/components/`
+- Always define `interface Props` in frontmatter
+- Zero client-side JS — static site, no hydration by default
+- `BaseLayout.astro` is the **only** layout
+
+### BaseLayout Props
+```typescript
+interface Props {
+  title: string;       // required
+  description: string; // required
+  ogImage?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+}
+```
+
+### Tailwind CSS v4
+- Configuration is in `src/styles/global.css` under `@theme {}` — never use `tailwind.config.js`
+- Brand color palette:
+  - `ph-blue` = `#0038A8` / `ph-blue-dark` = `#002A7F`
+  - `ph-red` = `#CE1126` / `ph-red-dark` = `#A80D1E`
+  - `ph-yellow` = `#FCD116`
+- Pre-defined utility classes: `.gradient-border-card`, `.animate-on-scroll`, `.animate-on-scroll-delay-1`, `.animate-on-scroll-delay-2`, `.animate-on-scroll-scale`, `.animate-pulse-glow`, `.animate-float`, `.animate-float-delay`, `.animate-count-up`
+
+### Blog Posts
+Frontmatter schema (Zod-validated — all fields required except author):
+```yaml
+---
+title: "Post Title"
+description: "One-sentence SEO summary"
+date: "YYYY-MM-DD"
+author: "OnThisDay.PH"
+---
+```
+
+## Rules — Do Not
+
+- Add React/Vue/Svelte — zero-JS is intentional
+- Create `tailwind.config.js` — config belongs in `global.css`
+- Create new layouts — only `BaseLayout.astro` exists and should remain the only one
+- Hardcode secrets — `.env` files are gitignored
+- Push directly to `main` — use pull requests
+
+## Related Projects
+
+- Main app (separate repo): Next.js 14 + Hono + Supabase at `https://app.onthisday.ph`
