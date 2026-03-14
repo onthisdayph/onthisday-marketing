@@ -1,54 +1,134 @@
-<section class="relative overflow-hidden bg-gradient-to-br from-ph-blue via-ph-blue-dark to-ph-blue text-white min-h-[90vh] flex items-center">
+---
+const today = new Date();
+const month = today.toLocaleDateString('en-PH', { month: 'long' });
+const day = today.getDate();
+---
+
+<section class="hero-section relative overflow-hidden bg-gradient-to-br from-ph-blue via-ph-blue-dark to-ph-blue text-white min-h-screen flex items-center">
   <!-- Floating decorative blurs -->
   <div class="absolute top-20 left-10 w-72 h-72 bg-ph-yellow/10 rounded-full blur-3xl animate-float"></div>
-  <div class="absolute bottom-20 right-10 w-96 h-96 bg-ph-red/10 rounded-full blur-3xl animate-float-delay"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-32 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-delay"></div>
 
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
-    <div class="max-w-3xl">
-      <!-- Glassmorphism badge -->
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
-        <span class="w-2 h-2 bg-ph-yellow rounded-full animate-pulse"></span>
-        <span class="text-sm font-medium text-blue-100">Civic Tech for Filipinos</span>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-32 lg:py-40 relative z-10 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Copy -->
+      <div>
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+          <span class="w-2 h-2 bg-ph-yellow rounded-full animate-pulse"></span>
+          <span class="text-sm font-medium text-blue-100">Civic Tech for Filipinos</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+          Resibo ng<br/>Bayan
+        </h1>
+        <p class="text-lg sm:text-xl text-blue-100 leading-relaxed mb-10 max-w-xl">
+          Philippine history in meme format — with verified sources. From national milestones to sports and culture. Remember what matters.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="https://app.onthisday.ph"
+            class="inline-flex items-center justify-center gap-2 bg-ph-yellow text-ph-blue-dark font-bold px-8 py-3.5 rounded-lg text-lg hover:brightness-110 transition animate-pulse-glow"
+          >
+            <span>Open the App</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+          </a>
+          <a
+            href="#how-it-works"
+            class="inline-flex items-center justify-center border-2 border-white/30 text-white font-semibold px-8 py-3.5 rounded-lg text-lg hover:bg-white/10 transition"
+          >
+            See How It Works
+          </a>
+        </div>
       </div>
 
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-        <span class="bg-gradient-to-r from-white via-ph-yellow to-white bg-clip-text text-transparent">
-          Resibo ng Bayan
-        </span>
-      </h1>
-      <p class="text-lg sm:text-xl text-blue-100 leading-relaxed mb-10 max-w-2xl">
-        Philippine history in meme format — with verified sources. From national milestones to cultural moments, remember what matters. Never forget.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a
-          href="https://app.onthisday.ph"
-          class="inline-flex items-center justify-center gap-2 bg-ph-yellow text-ph-blue-dark font-bold px-8 py-3.5 rounded-lg text-lg hover:brightness-110 transition animate-pulse-glow"
-        >
-          <span>Open the App</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-        </a>
-        <a
-          href="#how-it-works"
-          class="inline-flex items-center justify-center border-2 border-white/30 text-white font-semibold px-8 py-3.5 rounded-lg text-lg hover:bg-white/10 transition"
-        >
-          See How It Works
-        </a>
-      </div>
+      <!-- Right: Interactive "On This Day" preview card -->
+      <div class="hidden lg:block">
+        <div class="relative">
+          <!-- Glow behind card -->
+          <div class="absolute -inset-4 bg-white/5 rounded-3xl blur-2xl"></div>
 
-      <!-- Quick stats -->
-      <div class="flex flex-wrap gap-8 mt-14 pt-8 border-t border-white/15">
-        <div>
-          <p class="text-2xl sm:text-3xl font-extrabold text-ph-yellow">100%</p>
-          <p class="text-sm text-blue-200 mt-1">Free & Open Source</p>
-        </div>
-        <div>
-          <p class="text-2xl sm:text-3xl font-extrabold text-white">Verified</p>
-          <p class="text-sm text-blue-200 mt-1">Source-backed entries</p>
-        </div>
-        <div>
-          <p class="text-2xl sm:text-3xl font-extrabold text-white">Community</p>
-          <p class="text-sm text-blue-200 mt-1">Driven by Filipinos</p>
+          <!-- Main card -->
+          <div class="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 space-y-4">
+            <!-- Card header -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-ph-yellow/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-ph-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <p class="text-white font-bold text-sm">On This Day</p>
+                  <p class="text-blue-200 text-xs">{month} {day}</p>
+                </div>
+              </div>
+              <span class="text-xs text-blue-300 bg-white/10 px-2.5 py-1 rounded-full">Live</span>
+            </div>
+
+            <!-- Sample timeline entries -->
+            <div class="space-y-3">
+              <div class="bg-white/10 rounded-xl p-4 border border-white/10 hover:bg-white/15 transition-colors cursor-pointer">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-blue-200 font-medium">1972</span>
+                  <span class="text-xs bg-white/10 text-blue-200 px-2 py-0.5 rounded-full">History</span>
+                </div>
+                <p class="text-white font-semibold text-sm mb-1">Martial Law Declared</p>
+                <p class="text-blue-200 text-xs leading-relaxed">Proclamation No. 1081 signed by Ferdinand Marcos</p>
+                <div class="flex items-center gap-3 mt-3 text-blue-300 text-xs">
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+                    2.4k
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 015.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                    3 sources
+                  </span>
+                </div>
+              </div>
+
+              <div class="bg-white/10 rounded-xl p-4 border border-white/10 hover:bg-white/15 transition-colors cursor-pointer">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-blue-200 font-medium">2024</span>
+                  <span class="text-xs bg-white/10 text-blue-200 px-2 py-0.5 rounded-full">Sports</span>
+                </div>
+                <p class="text-white font-semibold text-sm mb-1">Carlos Yulo Wins Gold</p>
+                <p class="text-blue-200 text-xs leading-relaxed">First Filipino Olympic gold in gymnastics</p>
+                <div class="flex items-center gap-3 mt-3 text-blue-300 text-xs">
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+                    5.1k
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 015.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                    5 sources
+                  </span>
+                </div>
+              </div>
+
+              <div class="bg-white/10 rounded-xl p-4 border border-white/10 hover:bg-white/15 transition-colors cursor-pointer">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-blue-200 font-medium">2013</span>
+                  <span class="text-xs bg-white/10 text-blue-200 px-2 py-0.5 rounded-full">Disaster</span>
+                </div>
+                <p class="text-white font-semibold text-sm mb-1">Typhoon Yolanda</p>
+                <p class="text-blue-200 text-xs leading-relaxed">Strongest typhoon to make landfall in recorded history</p>
+                <div class="flex items-center gap-3 mt-3 text-blue-300 text-xs">
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+                    3.8k
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 015.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                    7 sources
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card footer -->
+            <a href="https://app.onthisday.ph" class="flex items-center justify-center gap-2 text-sm text-blue-200 hover:text-white transition-colors pt-2">
+              <span>See all events on this day</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>

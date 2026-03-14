@@ -6,9 +6,9 @@ const navLinks = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-    <a href="/" class="flex items-center gap-2 font-bold text-xl text-ph-blue">
+    <a href="/" class="flex items-center gap-2 font-bold text-xl header-logo transition-colors">
       <span>OnThisDay.PH</span>
     </a>
 
@@ -16,7 +16,7 @@ const navLinks = [
     <ul class="hidden md:flex items-center gap-8">
       {navLinks.map(link => (
         <li>
-          <a href={link.href} class="text-gray-600 hover:text-ph-blue transition-colors font-medium">
+          <a href={link.href} class="header-link transition-colors font-medium">
             {link.label}
           </a>
         </li>
@@ -24,7 +24,7 @@ const navLinks = [
       <li>
         <a
           href="https://app.onthisday.ph"
-          class="bg-ph-blue text-white px-5 py-2 rounded-lg font-semibold hover:bg-ph-blue-dark transition-colors"
+          class="header-cta px-5 py-2 rounded-lg font-semibold transition-colors"
         >
           Open App
         </a>
@@ -34,7 +34,7 @@ const navLinks = [
     <!-- Mobile menu button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-gray-600 hover:text-ph-blue"
+      class="md:hidden p-2 header-link transition-colors"
       aria-label="Toggle menu"
       aria-expanded="false"
     >
@@ -45,7 +45,7 @@ const navLinks = [
   </nav>
 
   <!-- Mobile nav -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-100">
     <ul class="px-4 py-4 space-y-3">
       {navLinks.map(link => (
         <li>
@@ -66,10 +66,88 @@ const navLinks = [
   </div>
 </header>
 
+<!-- Spacer so content isn't hidden behind fixed header on non-hero pages -->
+<div id="header-spacer" class="h-16"></div>
+
+<style>
+  /* Transparent state (over hero) */
+  #site-header.header-transparent {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+  #site-header.header-transparent .header-logo {
+    color: white;
+  }
+  #site-header.header-transparent .header-link {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  #site-header.header-transparent .header-link:hover {
+    color: white;
+  }
+  #site-header.header-transparent .header-cta {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  #site-header.header-transparent .header-cta:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Solid state (scrolled) */
+  #site-header.header-solid {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #f3f4f6;
+  }
+  #site-header.header-solid .header-logo {
+    color: #0038A8;
+  }
+  #site-header.header-solid .header-link {
+    color: #4b5563;
+  }
+  #site-header.header-solid .header-link:hover {
+    color: #0038A8;
+  }
+  #site-header.header-solid .header-cta {
+    background: #0038A8;
+    color: white;
+  }
+  #site-header.header-solid .header-cta:hover {
+    background: #002A7F;
+  }
+</style>
+
 <script>
+  const header = document.getElementById('site-header')!;
   const btn = document.getElementById('mobile-menu-btn')!;
   const menu = document.getElementById('mobile-menu')!;
   const icon = document.getElementById('menu-icon')!;
+  const spacer = document.getElementById('header-spacer')!;
+
+  // Check if page has a hero (the first child of main)
+  const main = document.querySelector('main');
+  const firstSection = main?.firstElementChild;
+  const hasHero = firstSection?.classList.contains('hero-section');
+
+  function updateHeader() {
+    if (hasHero) {
+      spacer.style.display = 'none';
+      if (window.scrollY > 50) {
+        header.classList.remove('header-transparent');
+        header.classList.add('header-solid');
+      } else {
+        header.classList.remove('header-solid');
+        header.classList.add('header-transparent');
+      }
+    } else {
+      spacer.style.display = 'block';
+      header.classList.remove('header-transparent');
+      header.classList.add('header-solid');
+    }
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
 
   btn.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden');
