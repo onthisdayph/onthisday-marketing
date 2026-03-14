@@ -108,3 +108,25 @@ src/pages/404.astro          → 404
 
 - Main app (separate repo): Next.js 14 + Hono + Supabase at `https://app.onthisday.ph`
 - Marketing site links to the app but shares no code with it
+
+## Keeping This File Current
+
+When any change affects the repository structure or conventions, **update all AI memory files** to reflect it. Outdated memory files cause AI assistants to give wrong advice.
+
+Update when:
+- **Pages or routes change** — update the routing table and repository structure
+- **Components added/removed** — update the structure and conventions sections
+- **Dependencies change** — update the Tech Stack table
+- **Scripts change** — update the Development Commands section
+- **CSS tokens or utility classes change** — update the Tailwind CSS section
+- **Content schema changes** — update the Blog Posts / Content Collections section
+- **Conventions change** — update the relevant section
+
+All AI memory files must be kept in sync:
+- `CLAUDE.md` (Claude Code)
+- `AGENTS.md` (OpenAI Codex / agents)
+- `GEMINI.md` (Gemini CLI)
+- `.github/copilot-instructions.md` (GitHub Copilot)
+- `.cursor/rules/project.mdc` (Cursor)
+- `.windsurfrules` (Windsurf)
+- `.rules` + `project_rules.md` (Trae)
