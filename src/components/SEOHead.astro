@@ -6,6 +6,7 @@ interface Props {
   canonicalURL?: string;
   type?: 'website' | 'article';
   publishedDate?: string;
+  author?: string;
 }
 
 const {
@@ -15,48 +16,133 @@ const {
   canonicalURL = Astro.url.href,
   type = 'website',
   publishedDate,
+  author,
 } = Astro.props;
 
 const siteName = 'OnThisDay.PH';
+const siteURL = 'https://onthisday.ph';
+const themeColor = '#0038A8';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+const ogImageURL = new URL(ogImage, Astro.site).toString();
+
+const articleAuthor = author ?? siteName;
+
+const jsonLd = type === 'article'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: fullTitle,
+      description,
+      url: canonicalURL,
+      image: {
+        '@type': 'ImageObject',
+        url: ogImageURL,
+        width: 1200,
+        height: 630,
+      },
+      ...(publishedDate ? { datePublished: publishedDate } : {}),
+      author: author
+        ? { '@type': 'Person', name: author }
+        : { '@type': 'Organization', name: siteName, url: siteURL },
+      publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        url: siteURL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteURL}/favicon.svg`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': canonicalURL,
+      },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteName,
+      alternateName: 'Resibo ng Bayan',
+      url: siteURL,
+      description,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://app.onthisday.ph/search?q={search_term_string}',
+        },
+        'query-input': 'required name=search_term_string',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: siteName,
+        url: siteURL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteURL}/favicon.svg`,
+        },
+      },
+    };
+
+const breadcrumbJsonLd = type === 'article'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: siteURL },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteURL}/blog` },
+        { '@type': 'ListItem', position: 3, name: title, item: canonicalURL },
+      ],
+    }
+  : null;
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="canonical" href={canonicalURL} />
 
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <meta name="generator" content={Astro.generator} />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+{type === 'article' && <meta name="author" content={articleAuthor} />}
+
+<!-- Mobile status bar theme color — broadest platform coverage -->
+<!-- Chrome Android, Samsung Internet, Firefox Android, Edge Android, Opera Mobile -->
+<meta name="theme-color" content={themeColor} />
+<!-- iOS Safari 15+: colors the URL bar / browser chrome -->
+<!-- iOS PWA (Add to Home Screen): controls status bar appearance -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="OnThisDay.PH" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<!-- Windows Phone / IE -->
+<meta name="msapplication-navbutton-color" content={themeColor} />
+<meta name="msapplication-TileColor" content={themeColor} />
 
 <!-- Open Graph -->
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={`${fullTitle} — ${siteName}`} />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_PH" />
+{publishedDate && <meta property="article:published_time" content={publishedDate} />}
+{type === 'article' && <meta property="article:author" content={articleAuthor} />}
 
-<!-- Twitter -->
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@onthisdayph" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+<meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={`${fullTitle} — ${siteName}`} />
 
-{publishedDate && <meta property="article:published_time" content={publishedDate} />}
-
-<!-- JSON-LD -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': type === 'article' ? 'Article' : 'WebSite',
-  name: fullTitle,
-  description,
-  url: canonicalURL,
-  ...(type === 'article' && publishedDate ? { datePublished: publishedDate } : {}),
-  publisher: {
-    '@type': 'Organization',
-    name: siteName,
-    url: 'https://onthisday.ph',
-  },
-})} />
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{breadcrumbJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />}
