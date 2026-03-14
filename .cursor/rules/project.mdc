@@ -1,0 +1,121 @@
+---
+description: Project conventions and architecture guide for OnThisDay.PH marketing website
+globs: ["**/*.astro", "**/*.ts", "**/*.css", "**/*.md"]
+alwaysApply: true
+---
+
+# OnThisDay.PH Marketing Website — Project Rules
+
+## Project Overview
+
+Static marketing website for [OnThisDay.PH](https://onthisday.ph), a civic tech platform helping Filipinos fact-check historical claims. Built with Astro as a zero-JS static site, separate from the main app.
+
+## Tech Stack
+
+- **Framework**: Astro 6.0.4
+- **CSS**: Tailwind CSS v4 via `@tailwindcss/vite` (NOT a config file)
+- **Language**: TypeScript strict mode
+- **Content**: Astro Content Collections + Zod
+- **Deployment**: Vercel — production at `https://onthisday.ph`
+- **Package Manager**: pnpm (required), Node.js >= 22.12.0
+
+## Development Commands
+
+```bash
+pnpm dev      # http://localhost:4321
+pnpm build    # production build → dist/
+pnpm preview  # preview built site
+```
+
+No test suite — verify with `pnpm build`.
+
+## Architecture Rules
+
+### Components
+- All components are `.astro` files in `src/components/`
+- Always define a typed `interface Props` in component frontmatter
+- Zero client-side JS — this is a static site, no hydration unless absolutely needed
+- `BaseLayout.astro` is the **only** layout — never create another
+
+### BaseLayout Props (required)
+```typescript
+interface Props {
+  title: string;       // required
+  description: string; // required
+  ogImage?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string; // ISO string, blog posts only
+}
+```
+
+### Tailwind v4 — Critical Rules
+- Config lives in `src/styles/global.css` under `@theme {}` — **NOT** in `tailwind.config.js`
+- Brand colors (always use these):
+  - `ph-blue` = `#0038A8`, `ph-blue-dark` = `#002A7F`
+  - `ph-red` = `#CE1126`, `ph-red-dark` = `#A80D1E`
+  - `ph-yellow` = `#FCD116`
+- Custom utility classes (already defined in `global.css`):
+  - `.gradient-border-card` — hover gradient border card
+  - `.animate-on-scroll` / `.animate-on-scroll-delay-1` / `.animate-on-scroll-delay-2`
+  - `.animate-on-scroll-scale`, `.animate-pulse-glow`, `.animate-float`, `.animate-float-delay`, `.animate-count-up`
+
+### Blog Posts — Content Collections
+Posts in `src/content/blog/*.md` require this exact frontmatter (Zod-validated):
+```yaml
+---
+title: "Post Title"
+description: "One-sentence SEO summary"
+date: "YYYY-MM-DD"
+author: "OnThisDay.PH"  # optional
+---
+```
+Slug = filename. Missing fields = build failure.
+
+### File Routing
+```
+src/pages/index.astro        → /
+src/pages/about.astro        → /about
+src/pages/blog/index.astro   → /blog
+src/pages/blog/[slug].astro  → /blog/<slug>
+src/pages/404.astro          → 404
+```
+
+## What NOT to Do
+
+- No React/Vue/Svelte — intentionally zero-JS
+- No `tailwind.config.js` — config is in `global.css`
+- No new layouts — only `BaseLayout.astro`
+- No hardcoded secrets — `.env` is gitignored
+- No pushing directly to `main` — use pull requests
+
+## Adding Features
+
+**New page**: `src/pages/<name>.astro` + use `BaseLayout` + update `Header.astro` / `Footer.astro` nav
+**New component**: `src/components/<Name>.astro` + typed `interface Props` + use brand colors
+**New blog post**: `src/content/blog/<slug>.md` + all required frontmatter fields
+
+## Related Projects
+
+- Main app (separate repo): Next.js 14 + Hono + Supabase at `https://app.onthisday.ph`
+
+## Keeping This File Current
+
+When any change affects the repository structure or conventions, **update all AI memory files** to reflect it. Outdated memory files cause AI assistants to give wrong advice.
+
+Update when:
+- **Pages or routes change** — update the routing table and repository structure
+- **Components added/removed** — update the structure and conventions sections
+- **Dependencies change** — update the Tech Stack table
+- **Scripts change** — update the Development Commands section
+- **CSS tokens or utility classes change** — update the Tailwind CSS section
+- **Content schema changes** — update the Blog Posts / Content Collections section
+- **Conventions change** — update the relevant section
+
+All AI memory files must be kept in sync:
+- `CLAUDE.md` (Claude Code)
+- `AGENTS.md` (OpenAI Codex / agents)
+- `GEMINI.md` (Gemini CLI)
+- `.github/copilot-instructions.md` (GitHub Copilot)
+- `.cursor/rules/project.mdc` (Cursor)
+- `.windsurfrules` (Windsurf)
+- `.rules` + `project_rules.md` (Trae)
