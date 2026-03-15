@@ -15,16 +15,25 @@ const formattedDate = new Date(date).toLocaleDateString('en-PH', {
 });
 ---
 
-<article class="gradient-border-card overflow-hidden hover:shadow-md transition-shadow">
-  <div class="p-6">
-    <p class="text-sm text-ph-red font-semibold mb-2">{formattedDate}</p>
-    <h3 class="text-xl font-bold text-gray-900 mb-2">
-      <a href={`/blog/${slug}`} class="hover:text-ph-blue transition-colors">
+<article class="gradient-border-card overflow-hidden hover:shadow-md transition-shadow" aria-label={title}>
+  <div class="p-8 flex flex-col h-full">
+    <time datetime={date} class="text-sm text-ph-red font-semibold mb-3 block">{formattedDate}</time>
+    <h3 class="text-xl font-bold text-gray-900 mb-3 leading-snug">
+      <a
+        href={`/blog/${slug}`}
+        class="hover:text-ph-blue transition-colors focus:outline-none focus-visible:underline focus-visible:text-ph-blue"
+      >
         {title}
       </a>
     </h3>
-    <p class="text-gray-600 text-sm leading-relaxed mb-4">{description}</p>
-    <a href={`/blog/${slug}`} class="text-ph-blue font-semibold text-sm hover:underline">
+    <p class="text-gray-600 text-base leading-relaxed mb-5 flex-grow">{description}</p>
+    <a
+      href={`/blog/${slug}`}
+      class="text-ph-blue font-semibold text-sm hover:underline focus:outline-none focus-visible:underline self-start"
+      aria-label={`Read more about ${title}`}
+      tabindex="-1"
+      aria-hidden="true"
+    >
       Read more &rarr;
     </a>
   </div>
