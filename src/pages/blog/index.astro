@@ -12,24 +12,26 @@ const posts = (await getCollection('blog')).sort(
   title="Blog"
   description="Articles about Philippine history, civic tech, and the fight against historical revisionism."
 >
-  <section class="py-20 sm:py-28 bg-white">
+  <section class="py-20 sm:py-28 bg-white" aria-labelledby="blog-heading">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">Blog</h1>
-      <p class="text-lg text-gray-600 mb-12">
+      <h1 id="blog-heading" class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-5">Blog</h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-14 max-w-2xl">
         Articles about Philippine history, civic tech, and the fight against historical revisionism.
       </p>
 
       {posts.length === 0 ? (
-        <p class="text-gray-500 text-center py-12">No posts yet. Check back soon!</p>
+        <p class="text-gray-500 text-center py-16">No posts yet. Check back soon!</p>
       ) : (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" role="list" aria-label="Blog posts">
           {posts.map(post => (
-            <BlogCard
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date}
-              slug={post.id}
-            />
+            <div role="listitem">
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.date}
+                slug={post.id}
+              />
+            </div>
           ))}
         </div>
       )}
