@@ -5,10 +5,10 @@ const formEndpoint = import.meta.env.PUBLIC_FEEDBACK_FORM_ENDPOINT;
 <section class="py-20 sm:py-28 bg-gray-50">
   <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 animate-on-scroll">
-      <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">Your Thoughts</p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What do you think?</h2>
+      <p class="text-sm font-bold text-ph-blue uppercase tracking-widest mb-3">Recommendations</p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Got a recommendation?</h2>
       <p class="text-lg text-gray-600">
-        After reading this page — does OnThisDay.PH resonate with you? We'd love to hear your reaction.
+        If something came to mind while reading — a suggestion, an idea, or something we should know — we're all ears.
       </p>
     </div>
 
@@ -18,61 +18,16 @@ const formEndpoint = import.meta.env.PUBLIC_FEEDBACK_FORM_ENDPOINT;
         method="POST"
         class="gradient-border-card p-8 animate-on-scroll"
       >
-        <div class="mb-5">
-          <label for="feedback-reaction" class="block text-sm font-semibold text-gray-700 mb-1.5">
-            How would you describe OnThisDay.PH to a friend? <span class="text-ph-red">*</span>
-          </label>
-          <input
-            id="feedback-reaction"
-            type="text"
-            name="reaction"
-            required
-            placeholder="e.g. "A fact-checker for Philippine history""
-            class="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ph-blue focus:border-transparent transition"
-          />
-        </div>
-
-        <div class="mb-5">
-          <label for="feedback-resonance" class="block text-sm font-semibold text-gray-700 mb-1.5">
-            What part of this page stood out to you most? <span class="text-ph-red">*</span>
-          </label>
-          <select
-            id="feedback-resonance"
-            name="resonance"
-            required
-            class="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-ph-blue focus:border-transparent transition bg-white"
-          >
-            <option value="" disabled selected>Select one</option>
-            <option value="problem">The problem it's solving</option>
-            <option value="how-it-works">How it works</option>
-            <option value="mission">The civic mission</option>
-            <option value="features">The features</option>
-            <option value="nothing">Nothing really grabbed me</option>
-          </select>
-        </div>
-
-        <div class="mb-5">
-          <label for="feedback-clarity" class="block text-sm font-semibold text-gray-700 mb-1.5">
-            Was anything unclear or confusing on this page?
-          </label>
-          <textarea
-            id="feedback-clarity"
-            name="clarity"
-            rows="3"
-            placeholder="e.g. "I wasn't sure what 'resibo' meant" or "The how-it-works section was hard to follow""
-            class="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ph-blue focus:border-transparent transition resize-y"
-          ></textarea>
-        </div>
-
         <div class="mb-7">
-          <label for="feedback-open" class="block text-sm font-semibold text-gray-700 mb-1.5">
-            Anything else you want to share?
+          <label for="feedback-recommendation" class="block text-sm font-semibold text-gray-700 mb-1.5">
+            Your recommendation <span class="text-ph-red">*</span>
           </label>
           <textarea
-            id="feedback-open"
-            name="open_feedback"
-            rows="3"
-            placeholder="Your honest reaction, questions, or anything on your mind..."
+            id="feedback-recommendation"
+            name="recommendation"
+            rows="5"
+            required
+            placeholder="Share your recommendation here..."
             class="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ph-blue focus:border-transparent transition resize-y"
           ></textarea>
         </div>
@@ -81,7 +36,7 @@ const formEndpoint = import.meta.env.PUBLIC_FEEDBACK_FORM_ENDPOINT;
           type="submit"
           class="w-full bg-ph-blue text-white font-bold px-6 py-3 rounded-lg hover:bg-ph-blue-dark transition-colors"
         >
-          Share My Thoughts
+          Send Recommendation
         </button>
       </form>
     ) : (
