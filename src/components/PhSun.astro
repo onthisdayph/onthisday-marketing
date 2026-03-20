@@ -1,0 +1,37 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 200 200"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <!-- Central circle -->
+  <circle cx="100" cy="100" r="38" />
+
+  <!-- Primary rays (8 rays, 45° apart, wider triangles) -->
+  <polygon points="192,100 138,92.1 138,107.9" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(45, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(90, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(135, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(180, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(225, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(270, 100, 100)" />
+  <polygon points="192,100 138,92.1 138,107.9" transform="rotate(315, 100, 100)" />
+
+  <!-- Secondary rays (8 rays, 22.5° offset, thinner & shorter) -->
+  <polygon points="178,100 138,96.7 138,103.3" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(22.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(67.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(112.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(157.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(202.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(247.5, 100, 100)" />
+  <polygon points="178,100 138,96.7 138,103.3" transform="rotate(292.5, 100, 100)" />
+</svg>
