@@ -15,6 +15,55 @@ const day = today.getDate();
   <div class="absolute top-20 left-10 w-72 h-72 bg-ph-yellow/10 rounded-full blur-3xl animate-float"></div>
   <div class="absolute bottom-32 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float-delay"></div>
 
+  <!-- Philippine sun — large, top-right decorative -->
+  <div class="absolute -top-24 -right-24 w-[480px] h-[480px] opacity-[0.07] pointer-events-none animate-spin-slow">
+    <svg viewBox="0 0 200 200" fill="white" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <!-- Central circle -->
+      <circle cx="100" cy="100" r="40"/>
+      <!-- 8 main rays (wide triangles, rotated 45° each) -->
+      <polygon points="88,65 112,65 100,5" transform="rotate(0,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(45,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(90,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(135,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(180,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(225,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(270,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(315,100,100)"/>
+      <!-- 8 thin secondary rays (at 22.5° offsets) -->
+      <polygon points="96,65 104,65 100,25" transform="rotate(22.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(67.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(112.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(157.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(202.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(247.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(292.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(337.5,100,100)"/>
+    </svg>
+  </div>
+
+  <!-- Philippine sun — small, bottom-left decorative -->
+  <div class="absolute -bottom-16 -left-16 w-[280px] h-[280px] opacity-[0.05] pointer-events-none animate-spin-slow-reverse">
+    <svg viewBox="0 0 200 200" fill="white" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+      <circle cx="100" cy="100" r="40"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(0,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(45,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(90,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(135,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(180,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(225,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(270,100,100)"/>
+      <polygon points="88,65 112,65 100,5" transform="rotate(315,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(22.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(67.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(112.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(157.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(202.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(247.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(292.5,100,100)"/>
+      <polygon points="96,65 104,65 100,25" transform="rotate(337.5,100,100)"/>
+    </svg>
+  </div>
+
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-32 lg:py-40 relative z-10 w-full">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
       <!-- Left: Copy -->
